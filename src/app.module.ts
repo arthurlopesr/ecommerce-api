@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './presentation/main/modules/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserEntity } from './domain/interface/user/user.entity';
 
 @Module({
   imports: [
@@ -16,6 +17,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       type: 'postgres',
+      synchronize: true,
+      entities: [UserEntity],
     }),
     UserModule,
   ],
