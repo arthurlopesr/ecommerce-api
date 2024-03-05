@@ -8,7 +8,6 @@ import { UserEntity } from './domain/interface/user/user.entity';
   imports: [
     ConfigModule.forRoot({
       envFilePath: ['.env'],
-      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       database: process.env.DB_DATABASE,
@@ -17,8 +16,9 @@ import { UserEntity } from './domain/interface/user/user.entity';
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       type: 'postgres',
-      synchronize: true,
       entities: [UserEntity],
+      migrations: [`${__dirname}/infra/typeorm/migrations/{.ts,*.js}`],
+      migrationsRun: true,
     }),
     UserModule,
   ],
