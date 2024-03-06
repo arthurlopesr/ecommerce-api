@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './presentation/main/modules/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from './domain/interface/user/user.entity';
-
+import { CityModule } from './presentation/main/modules/city.module';
+import { StateModule } from './presentation/main/modules/state.module';
+import { AddressModule } from './presentation/main/modules/address.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,11 +17,14 @@ import { UserEntity } from './domain/interface/user/user.entity';
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       type: 'postgres',
-      entities: [UserEntity],
+      entities: [`${__dirname}/domain/entities/*.entity{.ts,.js}`],
       migrations: [`${__dirname}/infra/typeorm/migrations/{.ts,*.js}`],
       migrationsRun: true,
     }),
     UserModule,
+    CityModule,
+    StateModule,
+    AddressModule,
   ],
   controllers: [],
   providers: [],
