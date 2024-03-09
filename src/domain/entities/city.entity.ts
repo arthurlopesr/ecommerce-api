@@ -9,11 +9,11 @@ export class CityEntity {
   name: string;
 
   @Column({ name: 'state_id', nullable: true })
-  state_id: number;
+  stateId: number;
 
   @Column({ name: 'created_at', default: () => 'CURRENT_TIMESTAMP' })
-  created_at: Date;
+  createdAt: Date;
 
   @Column({ name: 'updated_at', default: () => 'CURRENT_TIMESTAMP' })
-  updated_at: Date;
+  updatedAt: Date;
 }
