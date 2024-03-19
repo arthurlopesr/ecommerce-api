@@ -16,6 +16,6 @@ import { CacheModule } from '@nestjs/cache-manager';
   ],
   controllers: [CityController],
   providers: [CityService],
-  exports: [],
+  exports: [CityService],
 })
 export class CityModule {}
