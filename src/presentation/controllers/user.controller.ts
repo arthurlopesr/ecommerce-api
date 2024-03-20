@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   UsePipes,
   ValidationPipe,
@@ -10,6 +11,7 @@ import { CreateUserDto } from '../main/routes/dto/';
 import { UserService } from 'src/use-cases/services/user/user.service';
 import { UserEntity } from 'src/domain/entities/user.entity';
 import { ReturnUserDto } from '../main/routes/dto/returnUser.dto';
+import { ReturnAddressDto } from '../main/routes/dto/returnAddress.dto';
 
 @Controller('user')
 export class UserController {
@@ -25,6 +27,13 @@ export class UserController {
   async getAllUser(): Promise<ReturnUserDto[]> {
     return (await this.userService.getAllUser()).map(
       (user) => new ReturnUserDto(user),
+    );
+  }
+
+  @Get('/:userId')
+  async getUserById(@Param('userId') userId: number): Promise<ReturnUserDto> {
+    return new ReturnUserDto(
+      await this.userService.getUserByIdUsingRelations(userId),
     );
   }
 }
