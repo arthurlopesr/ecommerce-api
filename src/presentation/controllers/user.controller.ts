@@ -11,8 +11,6 @@ import { CreateUserDto } from '../main/routes/dto/';
 import { UserService } from 'src/use-cases/services/user/user.service';
 import { UserEntity } from 'src/domain/entities/user.entity';
 import { ReturnUserDto } from '../main/routes/dto/returnUser.dto';
-import { ReturnAddressDto } from '../main/routes/dto/returnAddress.dto';
-
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
