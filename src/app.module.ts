@@ -7,6 +7,8 @@ import { StateModule } from './presentation/main/modules/state.module';
 import { AddressModule } from './presentation/main/modules/address.module';
 import { UtilCacheModule } from './presentation/main/modules/cache.module';
 import { AuthModule } from './presentation/main/modules/auth/auth.module';
+import { RolesGuard } from './presentation/guard/roles.guard';
+import { APP_GUARD } from '@nestjs/core';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,6 +33,11 @@ import { AuthModule } from './presentation/main/modules/auth/auth.module';
     AuthModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+  ],
 })
 export class AppModule {}
