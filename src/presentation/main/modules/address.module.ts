@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AddressEntity } from 'src/domain/entities/address.entity';
-import { AddressController } from 'src/presentation/controllers/address.controller';
-import { AddressService } from 'src/use-cases/services/address/address.service';
+import { AddressEntity } from '../../../domain/entities/address.entity';
+import { AddressController } from '../../../presentation/controllers/address.controller';
+import { AddressService } from '../../../use-cases/services/address/address.service';
 import { UserModule } from './user.module';
 import { CityModule } from './city.module';
 

@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { AddressService } from 'src/use-cases/services/address/address.service';
+import { AddressService } from '../../use-cases/services/address/address.service';
 import { CreateAddressDto } from '../main/routes/dto/createAddress.dto';
-import { AddressEntity } from 'src/domain/entities/address.entity';
+import { AddressEntity } from '../../domain/entities/address.entity';
 import { Roles } from '../decorators/roles.decorator';
 import { UserType } from '../enum/user-type';
 import { UserId } from '../decorators/user-id.decorator';

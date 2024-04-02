@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { StateEntity } from 'src/domain/entities/state.entity';
+import { StateEntity } from '../../domain/entities/state.entity';
 
-import { StateService } from 'src/use-cases/services/state/state.service';
+import { StateService } from '../../use-cases/services/state/state.service';
 
 @Controller('state')
 export class StateController {

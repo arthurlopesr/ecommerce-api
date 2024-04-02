@@ -1,4 +1,4 @@
-import { StateEntity } from 'src/domain/entities/state.entity';
+import { StateEntity } from '../../../../domain/entities/state.entity';
 
 export class ReturnStateDto {
   state_id: number;
