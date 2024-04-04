@@ -1,5 +1,5 @@
 import { CityEntity } from '../../src/domain/entities/city.entity';
-import { stateEntityMock } from './stateMock';
+import { stateEntityMock } from '../mocks/state.mock';
 
 export const cityEntityMock: CityEntity = {
   city_id: 1,

@@ -3,7 +3,7 @@ import { StateEntity } from '../../../src/domain/entities/state.entity';
 import { StateService } from '../../../src/use-cases/services/state/state.service';
 import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { stateEntityMock } from '../../mocks/stateMock';
+import { stateEntityMock } from '../../mocks/state.mock';
 
 describe('StateServiceTest', () => {
   let service: StateService;
